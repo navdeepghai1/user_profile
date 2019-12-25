@@ -10,10 +10,40 @@
 <article class="about-content">
 
 	{% if user_profile %}
+		<div class="text-center">
+			{% if user_profile.image %}	
+				<img alt="{{user_profile.profile_title}}" src="{{user_profile.image}}"  class="rounded img-thumbnail"/> 
+			{% else %}
+				<i class="fa fa-user-alt"></i>
+			{% endif %}
+		</div>
+		{% set address = None %}
+		{% if user_profile.address %}
+			{% set address = frappe.get_doc("Address", user_profile.address) %}	
+		{% endif %}
+		{% if address %}
+			<div class="text-center">
+				<code class="code">
+					{% if address.address_line1 %}
+						<span>{{ address.address_line1}}</span>
+					{% endif %}
+					{% if address.phone %}
+						<br><a href="tel:{{address.phone}}">{{_("Mob. No. ") }}{{ address.phone}}</a>	
+					{% endif %}
+					{% if address.email_id %}
+						<br><a href="mailto:{{address.email_id}}?Subject=Hello%20again" target="_top">
+							{{address.email_id}}
+						</a>	
+					{% endif %}
+				</code>
+			</div>
+		{% endif %}
 		<h1 class="bold">{{ user_profile.profile_title }}</h1>
 		<p class="text-justify">
 			{{ user_profile.about }}
 		</p>
 		{% include "templates/includes/user_profile/experience.html" %}	
+		{% include "templates/includes/user_profile/education.html" %}	
+		{% include "templates/includes/user_profile/technical_skills.html" %}
 	{% endif %}
 {% endblock %}
