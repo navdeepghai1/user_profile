@@ -1,0 +1,22 @@
+<h1 class="bold">{{ _(user_profile.employee_education_title)}}</h1>
+<div class="col-xs-12">
+	<table class="table table-bordered">
+		<thead>
+			<th style="width:35%;">{{ _("SCHOOL/UNIVERSITY")}}</th>
+			<th style="width:30%;">{{ _("QUALIFICATION") }}</th>
+			<th style="width:20%;">{{ _("LEVEL") }}</th>
+			<th style="width:15%;" class="text-center">{{ _("PASSING YEAR") }}</th>
+		</thead>
+		<tbody class="">
+			{% for edu in user_profile.employee_education %}
+				<tr>
+					<td style="width:35%;" class="bold">{{ edu.school_univ }}</td>	
+					<td style="width:30%;">{{ edu.qualification }}</td>	
+					<td style="width:20%;">{{edu.level}}</td>	
+					<td style="width:15%;" class="text-center">{{ edu.year_of_passing}}</td>	
+				</tr>
+			{% endfor %}
+		</tbody>
+		
+	</table>	
+</div>

@@ -1,0 +1,17 @@
+<h1 class='bold'>{{ user_profile.skill_title}}</h1>
+<div class="col-xs-12">
+	<table class="table table-bordered">
+		<thead>
+			<th style="width:40%;">{{ _("TITLE") }}</th>
+			<th style="width: 60%;">{{ _("DESCRIPTION") }}</th>
+		</thead>
+		<tbody>
+			{% for skill in user_profile.skills %}
+				<tr>
+					<td style="width: 40%;" class="bold">{{ skill.title}}</td>
+					<td style="width: 60%;">{{ skill.technology}}</td>
+				</tr>	
+			{% endfor %}
+		</tbody>
+	</table>
+</div>
