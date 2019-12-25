@@ -1,0 +1,19 @@
+{% extends "templates/includes/user_profile/web.html" %}
+
+{% block title %}
+	{% if user_profile %}
+		{{ user_profile.profile_title or user_profile.email }}
+	{% endif %}
+{% endblock %}
+{% block page_content %}
+
+<article class="about-content">
+
+	{% if user_profile %}
+		<h1 class="bold">{{ user_profile.profile_title }}</h1>
+		<p class="text-justify">
+			{{ user_profile.about }}
+		</p>
+		{% include "templates/includes/user_profile/experience.html" %}	
+	{% endif %}
+{% endblock %}

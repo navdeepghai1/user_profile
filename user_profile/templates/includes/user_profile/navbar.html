@@ -1,0 +1,17 @@
+<nav class="navbar navbar-default navbar-main" role="navigation">
+	<div class="container">
+		<div class="navbar-header">
+			<a class="navbar-brand ellipsis"
+				 href="#">
+				{% if user_profile %}
+					<img src="{{user_profile.image }}" alt="{{ user_profile.profile_title}}"/>
+				{% endif %}
+			</a>
+			<div class="dropdown">
+				<button class="btn btn-default navbar-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+					<i class="octicon octicon-three-bars"></i>
+				</button>
+			</div>
+		</div>
+	</div>
+</nav>
