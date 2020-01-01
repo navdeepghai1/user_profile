@@ -11,7 +11,6 @@ app_color = "grey"
 app_email = "navdeepghai1@gmail.com"
 app_license = "MIT"
 
-fixtures = ["User Profile"]
 
 # Includes in <head>
 # ------------------
