@@ -1,0 +1,6 @@
+<h1 class="bold">{{ _("PROJECTS AND WORK REFERENCES")}}</h1>
+<div class="col-xs-12">
+	{% for ref in user_profile.social_links %}
+		<p><a href="{{ref.link}}" target="_blank">{{ref.title}}</a></p>
+	{% endfor %}
+</div>
